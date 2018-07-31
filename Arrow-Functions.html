@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Arrow Functions in ES6</title>
+</head>
+<body>
+	<h1>Arrow Functions ES6</h1>
+   <p>Note: For output please check browser console using (Ctrl + Shift + i)</p>  
+  
+</body>
+<script>
+//Exmple 1
+var newone = () =>{
+  console.log("=======Example 1 =======")
+  console.log("Hello!")
+}
+newone();
+
+//Example 2 
+let addition = (a,b) =>{
+  return a + b;
+  // console.log(a+b);
+}
+console.log("=======Example 2 =======")
+console.log(addition(10,20));
+
+let Add = (a,b=10) =>{
+
+  return a + b;
+
+}
+
+console.log(Add(30));
+
+//Example 3 Basic Syntax with One Parameter
+const textes6 = es6 => es6.split(" ");
+console.log("=======Example 3 =======")
+console.log(textes6("Es6 shorthand lang"))
+
+//Example 4 No Parameters 
+console.log("=======Example 4 =======")
+var docloges6 = () =>{ console.log(document);}
+docloges6();
+
+//Example 5 Object Literal Syntax
+
+var setName = (id,name) => ({ id: id, name: name });
+console.log("=======Example 5  =======")
+console.log(setName(20,'Vikrant'));
+
+//Exmaple 6 Use Cases for Arrow Functions
+
+const smartPhones = [
+  { name:'iphone', price:649 },
+  { name:'Galaxy S6', price:576 },
+  { name:'Galaxy Note 5', price:489 }
+];
+
+
+const prices = smartPhones.map(smartPhone => smartPhone.price)
+console.log("=======Example 6  =======")
+console.log(prices)
+
+//Example 7 
+
+const array = [ 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+
+const newArray = array.filter( v => v % 3 === 0); 
+console.log("=======Example 7 =======")
+console.log(newArray)
+
+//Example 8 
+console.log("=======Example 8 =======")
+function counter(){
+
+  this.seconds = 0;
+  this.setInterval(() => {
+    this.seconds ++;
+     console.log(this.seconds);
+
+  },1000);
+
+}
+counter()
+</script>
+</html>

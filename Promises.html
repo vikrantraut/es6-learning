@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Promises in ES6</title>
+</head>
+<body>
+	<h1>Promises in ES6</h1>
+	 <p>Note: For output please check browser console using (Ctrl + Shift + i)</p> 	
+</body>
+<script>
+	///Example 1 
+  var wait = new Promise((resolve,reject) =>{
+    setTimeout(resolve, 1000);
+
+  }).then(() =>{
+     console.log("============Example 1 ========")
+    console.log('Yes!...GO GO')
+  })
+  ///Example 2 
+    var wait10 = () => new Promise((resolve,reject) =>{
+    setTimeout(resolve, 2000);
+  })
+ 
+  wait10()
+  .then(() => {
+   console.log("============Example 2 ========")
+    console.log('Yes!!!!')
+    return wait10()
+  }).then(() => {
+    console.log('Ya ya ya!!!!!!!!')
+  })
+ 	///Example 3 
+  function delay(interval){
+    return new Promise( (resolve) =>{
+      setTimeout(resolve,interval);
+    });
+  }  
+
+  var SecondDelay = delay(5000);
+   console.log("============Example 3 ========")
+  console.log(SecondDelay)
+
+///Example 4
+    const promise = new Promise((resolve,reject) => {
+    const request = new XMLHttpRequest();
+    // const response = XMLHttpRequest.response;
+
+    request.open("GET","https://api.icndb.com/jokes/random");
+    request.onload = () => {
+        if(request.status === 200 ){
+          resolve(request.response);
+        }else{
+          reject(Error(request.statusText));
+        }
+      };
+
+      request.onerror = () =>{
+        reject(Error('Error fetching data.'));
+      }
+
+      request.send();
+    });
+
+    console.log("============Example 4 ========")
+    console.log('Asynchronous request made.');
+
+    promise.then( 
+      data => {
+      console.log('Got data! Promise fulfilled.');
+      document.body.textContent = JSON.parse(data).value.joke;
+      }, 
+      error => {
+  console.log('Promise rejected.');
+  console.log(error.message);
+     }
+    );
+
+///Example 5     
+const isSmallNumber = (num) => {
+  return new Promise((resolve,reject) => {
+     if(num < 10){
+      resolve(true)
+     }else{
+      reject(false)
+     }
+  })
+}
+setTimeout = () => {
+console.log("============Example 5 ========")
+isSmallNumber(12)
+    .then(res => console.log('The number is smaller then 10'))
+    .catch(err => console.log('The number is not smaller then 10'))
+,4000};
+
+//Example 6 
+
+const timeIn = (time) =>{
+ return new Promise((resolve,reject) => {
+  setTimeout( () => resolve (time),time);
+ })
+}
+timeIn(2000)
+.then( res => console.log(`Resloved in ${res/1000} seconds`))
+console.log("============Example 6 ========")
+</script>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Enhanced Object Literals in ES6</title>
+</head>
+<body>
+	<h1>Enhanced Object Literals in ES6</h1>
+	 <p>Note: For output please check browser console using (Ctrl + Shift + i)</p> 	
+</body>
+<script>
+	///Example 1 
+   function getLaptop(make,model,year){
+    return{
+      make,
+      model,
+      year
+    }
+   }
+   console.log("============Example 1 ========")
+   console.log(getLaptop('Apple','MacBook', '2015'))
+
+	///Example 2  
+  function getlaptop(make,model,year){
+    return{
+      sayModel() {
+          return model;
+      }
+    }
+  } 
+ console.log("============Example 2 ========") 
+ console.log(getlaptop('Apple','MacBook', '2015').sayModel())
+
+ 	///Example 3 
+  var name = "make";
+  const laptop = {
+    [name] : "Apple"
+  }
+  console.log("============Example 3 ========") 
+  console.log(laptop.make)
+
+    ///Example 4
+    var name = "make";
+    var i = 0;
+    const laptops = {
+      [name + ++i] : "Apple",
+      [name + ++i] : "Dell",
+      [name + ++i] : "Lenovo"
+    }
+    console.log("============Example 4 ========") 
+    console.log(laptops.make1);
+    console.log(laptops.make2);
+    console.log(laptops.make3);
+
+     ///Example 5
+     const lib = (() => {
+
+      function sum (a,b){ return a+b; }
+      function mult(a,b){ return a*b; }
+
+      return{
+        sum,
+        mult
+      };
+ 
+     })();
+      console.log("============Example 5 ========") 
+      console.log(lib.sum(2,3));
+      console.log(lib.mult(5,6));
+
+     ///Example 6
+     const add = {
+
+        sum : (a,b) => a+b,
+        mult : (a,b) => a*b
+
+     };
+      console.log("============Example 6 ========") 
+      console.log(lib.sum(20,30));
+      console.log(lib.mult(4,5)); 
+
+      ///Example 7
+
+      const meta = {
+        title : 'Raw Engineering inc',
+        companyinfo : {
+           url : 'https://www.raweng.com',
+           description : 'Learn how our journey has led us to evolve into a world class solutions company.',
+           keywords : 'Web services,Flow,Contentstack'
+        }        
+      } 
+
+      const {
+        title : doc,
+        companyinfo : { url : web,
+                  description : desc,
+                 keywords : key 
+               }
+      }= meta;  
+
+       console.log("============Example 7 ========") 
+      console.log(doc);
+      console.log(web); 
+      console.log(desc);
+      console.log(key);
+
+    // Example 8
+    function getCar(make,model,value){
+
+      return{
+              make,
+              model,
+              value,
+
+              ['make'+ make] : true,
+
+              depreciate(){
+                this.value -= 2500
+              }
+      };
+
+    }
+
+    let car = getCar('Hyundai','i10','400000')
+   console.log("============Example 8 ========") 
+   console.log(car)
+
+</script>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Classes in ES6</title>
+</head>
+<body>
+	<h1>Classes in ES6</h1>
+	 <p>Note: For output please check browser console using (Ctrl + Shift + i)</p> 	
+</body>
+<script>
+///Example 1 
+  console.log("=========== Exmple 1 ( Declarations & Expressions )===========")
+  class food {
+
+    constructor(name,protein,carbs,fat){
+        this.name = name;
+        this.protein = protein;
+        this.carbs = carbs;
+        this.fat = fat;
+
+    }
+
+    toString(){
+      return `${this.name} | ${this.protein} | ${this.carbs} | ${this.fat}`
+    }
+
+    print(){
+
+    console.log(this.toString());
+    }
+   }
+   
+    const chicken = new food('Chicken Breast',26,0,3.5);
+
+    chicken.print();
+    console.log(chicken.protein)
+      
+///Example 2
+  console.log("=========== Exmple 2 ( Creating Subclasses with extends & Calling with super )===========")
+   class FatFreeFood extends food{
+
+      constructor (name, protein, crabs){
+        super(name,protein,crabs,0)
+      }
+  
+
+   print(){
+    super.print();
+    console.log(`Would you look at the -- ${this.name} has no fat`);
+   }
+ }
+ 
+ const FatFreeYoga = new FatFreeFood('Greek Yogurt', 16, 12); 
+ FatFreeYoga.print();
+
+ 	///Example 3
+  console.log("=========== Exmple 3 ( Creating Objects with Constructor Calls )===========") 
+
+  function Food(name,protein,crabs,fats){
+
+    const obj = {};
+
+    Object.setPrototypeOf(obj,Food.prototype);
+
+    obj.name = name;
+    obj.protein = protein;
+    obj.crabs = crabs;
+    obj.fats  = fats;
+
+    return obj;
+  }
+  
+  const fish = Food('Poplate',12,13,0);
+
+  console.log(fish.name);
+
+</script>
+</html>

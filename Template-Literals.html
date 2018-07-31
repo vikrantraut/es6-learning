@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Template Literals in ES6</title>
+</head>
+<body>
+	<h1>Template Literals in ES6</h1>
+	<p>Note: For output please check browser console using (Ctrl + Shift + i)</p>	
+	<p><button onclick="haveFun()">Click</button></p>    
+</body>
+<script>
+	///Example 1 
+	function haveFun(action='burrowing', time=3) {
+		  console.log(`I will go ${action} with Bunny for ${time} hours.`)
+		 // returns `<h1>I will go ${action} with Bunny for ${time} hours.</h1>`
+		}      
+    ///Example 2
+	function Name(first='Vikrant', last='Raut') {
+		  console.log(`My name is ${first} ${last}.`)
+		}
+		Name();
+ 	///Example 3 
+ 	let Car_name = `Hyundai i 20`
+ 	let Car_color = `White`
+ 	let Car = `My Car is ${Car_name} and Color is ${Car_color}.`
+    console.log(Car)
+</script>
+</html>

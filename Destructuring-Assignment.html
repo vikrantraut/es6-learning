@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Destructuring Assignment in ES6</title>
+</head>
+<body>
+	<h1>Destructuring Assignment in ES6</h1>
+	<p>Note: For output please check browser console using (Ctrl + Shift + i)</p>	
+</body>
+<script>
+  ///Example 1 Declaring Variables before Assingment 
+   let string1,string2,string3,string4;
+   [string1,string2,string3,string4] = ["Hello","I","am","Vikrant"]
+   console.log("Declaring Variables before Assingment ")
+   console.log(string1)
+   console.log(string2)
+   console.log(string3)
+   console.log(string4)
+
+  ///Example 2 Declaring Variables after Assingment 
+   let intro2 = ["Hello","I","am","Raut"]
+   let [str1,str2,str3,str4] = intro2
+     console.log("Declaring Variables after Assingment ")
+     console.log(str1)
+     console.log(str2)
+     console.log(str3)
+     console.log(str4)
+
+ 	///Example 3 Skipping Items in an Array
+  let [text1,,,text2] = ["Hello","I","Am","Past"]
+    console.log("Skipping Items in an Array")
+    console.log(text1)
+    console.log(text2)
+
+  ///Example 4 Assigning the rest of an array
+  let [text10,...text20] = ["Hello","I","Am","Superman"]
+    console.log("Assigning the rest of an array")
+    console.log(text10) 
+    console.log(text20)
+
+  ///Example 5 Destructuring Assignment with Functions
+  function getarray(){
+    return ["Hello","I","Am","Sachin"]
+  }
+
+  let [new1,,,new2] = getarray();
+    console.log("Destructuring Assignment with Functions")
+    console.log(new1) 
+    console.log(new2)
+
+  ///Example 6 Using Default Values
+    let[newtxt="Hello",newtxt1="Vikrant"] =["Hi"];
+
+    console.log("Using Default Values")
+    console.log(newtxt) 
+    console.log(newtxt1)   
+
+    ///Example 6 Swapping Values using Destructuring Assignment
+    let a = 10;
+    let b = 20;
+
+    [a,b] = [b,a]
+
+    console.log("Swapping Values using Destructuring Assignment")
+    console.log(a) 
+    console.log(b)
+   
+  ///Example 7  Object Destructuring
+   var myObject = {
+                    one:   'a',
+                    two:   'b',
+                    three: 'c'
+                  };
+
+  const {one, two, three} = myObject;
+
+  console.log("Object Destructuring")
+  console.log(one);
+  console.log(two)  
+  console.log(three)  
+
+    ///Example 8  Object Destructuring
+   const meta = {
+                  title: 'Destructuring Assignment in ES6',
+                  authors: [
+                    {
+                      firstname: 'abc',
+                      lastname: 'xyz'
+                    }
+                  ],
+                  publisher: {
+                    name: 'Raweng',
+                    url: 'http://www.raweng.com/'
+                  }
+                };
+
+  const {
+               title:doc,
+               authors : [{ firstname : name}],
+               publisher : { url : web}
+       } = meta;
+
+  console.log("=============Object Destructuring===============")
+  console.log(doc);
+  console.log(name)  
+  console.log(web) 
+
+   ///Example 9  Default Function Parameters
+  function prettyPrint(
+    {
+      title : pubtitle = 'No title',
+      publisher : { name : pubName = 'No publisher'}  
+
+  }={}
+  )
+  {
+    return pubtitle + ',' + pubName;
+  }
+  console.log("=============Default Function Parameters===============")
+  console.log(prettyPrint(meta))
+   
+  ///Example 10  For-of Iteration
+
+  const companies = [
+                      {
+                        title: 'Raw Engineering inc',
+                        author: 'Nishat Patel',
+                        url: 'http://www.raweng.com'
+                      },
+                      {
+                        title: 'Contentstack',
+                        author: 'Neha sampat',
+                        url: 'http://www.contentstack.com'
+                      },
+                      {
+                        title: 'Built.io',
+                        author: 'Nishat Patel',
+                        url: 'http://www.built.io'
+                      },
+                  ];
+console.log("======For-of Iteration========")
+for( const {title,author,url} of companies){
+  console.log(`${title} is ${author} : ${url}`)
+}
+
+//Example 11 Regular Expression Handling
+const [p,q,r,s] = 'one two three'.match(/\w+/g);
+
+console.log("Regular Expression Handling");
+console.log(p);
+console.log(q);
+console.log(r);
+console.log(s);
+
+</script>
+</html>

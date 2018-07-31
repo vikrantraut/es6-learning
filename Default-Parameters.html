@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Default Parameters in ES6</title>
+</head>
+<body>
+	<h1>Default Parameters in ES6</h1>	
+	<p>Note: For output please check browser console using (Ctrl + Shift + i)</p>	
+</body>
+<script>
+	///Example 1 
+	function add(x,y=7){
+		console.log(x+y,"Example 1");
+	}
+	add(7,7); //14
+	add(8) // 15
+	add(9,undefined); // 16
+	add(undefined,7); //NaN
+
+    ///Example 2
+	let Func = (a, b=10) =>{
+
+		return a + b;
+	}   
+    console.log( Func(20),"Example 2")
+    console.log( Func(),"Example 2")
+
+ 	///Example 3 
+
+</script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Counter Function</title>
+</head>
+<body>
+  <p>var = <b id="insec">0</b></p>
+  <button type="button" onclick="increase();">Increment</button>
+  <p>var = <b id="dec">0</b></p>
+  <button type="button" onclick="decrease()">Decrement</button>
+</body>
+
+<script>
+ var i= 1;
+function increase()
+{
+  i++;
+  document.getElementById('insec').innerHTML= +i;
+}
+
+var j = 1;
+function decrease()
+{
+
+  document.getElementById('dec').innerHTML = --j;
+
+}
+var JSON = { "bookname": "VB BLACK BOOK", "price": 500 };
+document.write("<h3>Book Name is " + JSON.bookname + "</h3>")
+document.write("<h4>Book Price is " + JSON.price + "</h4>")
+
+
+</script>
+</html>

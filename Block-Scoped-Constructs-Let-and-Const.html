@@ -1,0 +1,43 @@
+n<!DOCTYPE html>
+<html>
+<head>
+	<title>Block-Scoped Constructs Let and Const</title>
+</head>
+<body>
+	<h1>Block-Scoped Constructs Let and Const</h1>
+	<p>Note: For output please check browser console</p>
+</body>
+<script>
+/****** Let *****/ 
+//Example 1
+	if(true){
+		let a = 40;
+		console.log(a); // 40
+	}
+	// console.log(a); // undefind 
+
+//Example 2  
+  let a = 50;
+  let b = 40; 	
+  if(true){
+  	let a = 60;
+  	var c = 10;
+  	console.log(a/c); // 6
+  	console.log(b/c); // 4
+  }
+  	console.log(c); // 10
+  	console.log(a); // 40 
+
+/***** Const ***/
+//Example 1
+const a = 60; 
+      a = 10 ; // not allowed 
+//Example 2
+const Lang = ['Ruby','Js','RactJs','Python']
+// Lang = "Java";
+// console.log(Lang) // Error
+Lang.push('Java');
+console.log(Lang);
+
+</script>
+</html>
